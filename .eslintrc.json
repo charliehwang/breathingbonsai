@@ -1,0 +1,8 @@
+{
+  "extends": "",
+  "parserOptions": {
+    "ecmaVersion": 2015,
+    "ecmaFeatures": { "jsx": true },
+    "sourceType": "module"
+  }
+}
