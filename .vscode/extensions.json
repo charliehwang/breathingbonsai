@@ -1,8 +1,10 @@
 {
-	"recommendations": [
-		"dbaeumer.vscode-eslint",
-		"esbenp.prettier-vscode",
-		"wix.vscode-import-cost",
-		"bradlc.vscode-tailwindcss"
-	]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "wix.vscode-import-cost",
+    "bradlc.vscode-tailwindcss",
+    "shd101wyy.markdown-preview-enhanced",
+    "graphql.vscode-graphql"
+  ]
 }
