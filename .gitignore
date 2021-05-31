@@ -62,4 +62,7 @@ typings/
 
 dist
 .cache
+.DS_Store
+
+# gatsby static file generation, removed after each build
 public/
