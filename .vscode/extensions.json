@@ -4,6 +4,7 @@
     "esbenp.prettier-vscode",
     "wix.vscode-import-cost",
     "bradlc.vscode-tailwindcss",
-    "shd101wyy.markdown-preview-enhanced"
+    "shd101wyy.markdown-preview-enhanced",
+    "graphql.vscode-graphql"
   ]
 }
