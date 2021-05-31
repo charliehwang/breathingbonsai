@@ -1,14 +1,14 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import * as React from "react";
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 const IndexPage = () => (
   <Layout>
     <Seo title="Home" />
-    <h1>Breathing Bonsai</h1>
+    <h1 className="bg-red-300">Breathing Bonsai</h1>
     <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
@@ -22,6 +22,6 @@ const IndexPage = () => (
       <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
     </p>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
