@@ -1,30 +1,30 @@
 import * as React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { PROJECTS_ORDERED, PROJECTS_DATA } from "./projects-data";
 import "./portfolio.css";
 
 const Portfolio = () => {
   const data = useStaticQuery(graphql`
-query MyQuery {
-  allFile(
-    filter: {extension: {regex: "/png|jpg/i"}, name: {regex: "/\\d+/"}, relativeDirectory: {regex: "/^portfolio/"}}
-  ) {
-    edges {
-      node {
-        id
-        relativeDirectory
-        name
-        extension
-        relativePath
-        childrenImageSharp {
-          id
-          gatsbyImageData
+    query MyQuery {
+      allFile(
+        filter: {extension: {regex: "/png|jpg/i"}, name: {regex: "/\\d+/"}, relativeDirectory: {regex: "/^portfolio/"}}
+      ) {
+        edges {
+          node {
+            id
+            relativeDirectory
+            name
+            extension
+            relativePath
+            childrenImageSharp {
+              id
+              gatsbyImageData
+            }
+          }
         }
       }
     }
-  }
-}
 	`);
 
   // console.log(data.allFile.edges);
@@ -32,7 +32,6 @@ query MyQuery {
     const { name: filename, extension, relativeDirectory, relativePath } = node;
     const file = `${filename}.${extension}`;
     const [baseDir, project] = relativeDirectory.split("/");
-    // console.log(file, relativeDirectory, relativePath);
     if (project) {
       acc[project] = acc[project] ?? [];
       acc[project].push(node);
@@ -55,31 +54,35 @@ query MyQuery {
     return (
       <div
         key={i}
-        className="w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative"
+        className="transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative hover:-translate-y-1 hover:border-blue-300 hover:border-b-2"
       >
-        <div className="project-card rounded overflow-hidden">
-          <GatsbyImage
-            className="gatsby-image h-36 w-full object-cover"
-            image={gatsbyImageData}
-            alt="image"
-          />
-        </div>
-        <article className="p-4">
-          <p className="text-gray-700 font-bold pb-4">{PROJECT_DATA.name}</p>
-          <p className="pb-4">{PROJECT_DATA.description}</p>
-          <div className="flex flex-wrap">
-            {PROJECT_DATA.technologiesUsed.split(",").map((tech, i) => {
-              return (
-                <div
-                  key={i}
-                  className="text-gray-700 font-sans text-sm font-bold mr-1 mt-1 px-2 py-1 rounded-md bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"
-                >
-                  {tech.trim()}
-                </div>
-              );
-            })}
+        <Link to="/" className="">
+          <div className="rounded overflow-hidden">
+            <GatsbyImage
+              className="gatsby-image h-36 w-full object-cover"
+              image={gatsbyImageData}
+              alt="image"
+            />
           </div>
-        </article>
+          <article className="p-4">
+            <div className="project-title text-gray-700 font-bold pb-4">
+              {PROJECT_DATA.name}
+            </div>
+            <p className="pb-4">{PROJECT_DATA.description}</p>
+            <div className="flex flex-wrap">
+              {PROJECT_DATA.technologiesUsed.split(",").map((tech, i) => {
+                return (
+                  <div
+                    key={i}
+                    className="text-gray-700 font-sans text-sm font-bold mr-1 mt-1 px-2 py-1 rounded-md bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"
+                  >
+                    {tech.trim()}
+                  </div>
+                );
+              })}
+            </div>
+          </article>
+        </Link>
       </div>
     );
   });
