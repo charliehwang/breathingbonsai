@@ -57,9 +57,9 @@ query MyQuery {
         key={i}
         className="w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative"
       >
-        <div className="project-card">
+        <div className="project-card rounded overflow-hidden">
           <GatsbyImage
-            className="h-36 w-full object-cover"
+            className="gatsby-image h-36 w-full object-cover"
             image={gatsbyImageData}
             alt="image"
           />
