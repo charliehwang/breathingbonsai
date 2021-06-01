@@ -40,6 +40,5 @@ module.exports = {
         whitelist: [],
       },
     },
-    "gatsby-plugin-modal-routing",
   ],
 };

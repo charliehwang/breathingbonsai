@@ -1,31 +1,39 @@
-import * as React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
-import { getImage, GatsbyImage } from "gatsby-plugin-image";
+import React, { useState } from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import { Link, getImage, GatsbyImage } from "gatsby-plugin-image";
 import { PROJECTS_ORDERED, PROJECTS_DATA } from "./projects-data";
 import "./portfolio.css";
+import CarouselModal from "./CarouselModal";
 
-const Portfolio = () => {
+const Portfolio = ({ openCarouselModal }) => {
   const data = useStaticQuery(graphql`
-    query MyQuery {
-      allFile(
-        filter: {extension: {regex: "/png|jpg/i"}, name: {regex: "/\\d+/"}, relativeDirectory: {regex: "/^portfolio/"}}
-      ) {
-        edges {
-          node {
+  query MyQuery {
+    allFile(
+      filter: {extension: {regex: "/png|jpg/i"}, name: {regex: "/\\d+/"}, relativeDirectory: {regex: "/^portfolio/"}}
+    ) {
+      edges {
+        node {
+          id
+          relativeDirectory
+          name
+          extension
+          relativePath
+          childrenImageSharp {
             id
-            relativeDirectory
-            name
-            extension
-            relativePath
-            childrenImageSharp {
-              id
-              gatsbyImageData
+            gatsbyImageData
+            fluid(maxWidth: 1000) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              sizes
             }
           }
         }
       }
     }
-	`);
+  }	
+`);
 
   // console.log(data.allFile.edges);
   const projectData = data.allFile.edges?.reduce((acc, { node }) => {
@@ -56,7 +64,13 @@ const Portfolio = () => {
         key={i}
         className="transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative hover:-translate-y-1 hover:border-blue-300 hover:border-b-2"
       >
-        <Link to="/" className="">
+        <a
+          href="#"
+          onClick={(e) => {
+            openCarouselModal(e, PROJECT_DATA, imagesData);
+          }}
+          className=""
+        >
           <div className="rounded overflow-hidden">
             <GatsbyImage
               className="gatsby-image h-36 w-full object-cover"
@@ -82,7 +96,7 @@ const Portfolio = () => {
               })}
             </div>
           </article>
-        </Link>
+        </a>
       </div>
     );
   });

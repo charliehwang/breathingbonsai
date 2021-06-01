@@ -26,8 +26,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <div id="app-modal" />
       <main className="p-4 pl-12">{children}</main>
-      <footer></footer>
     </>
   );
 };
