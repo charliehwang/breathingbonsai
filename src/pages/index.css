@@ -28,7 +28,7 @@
 span#period {
 	transform: scale(0);
 	opacity: 0;
-	animation: reveal 0.1s ease-in 0.70s 1 normal forwards;
+	animation: reveal 0.2s ease-in 0.75s 1 normal forwards;
 }
 
 @keyframes reveal {
