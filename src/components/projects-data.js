@@ -1,8 +1,10 @@
 export const PROJECTS_ORDERED = [
+  "madminutes",
   "holmes",
   "breadth",
   "chart-scans-v1",
   "chart-scans-v2",
+  "alp",
   "fundamental-charts-news",
   "top-stocks-by-day",
   "daytrader-dashboard",
@@ -12,13 +14,17 @@ export const PROJECTS_ORDERED = [
 ];
 
 export const PROJECTS_DATA = {
+  madminutes: {
+    name: "Mad Minutes",
+    description:
+      "Created to help kids with procedural math and alleviate daily checking and use of paper by teachers.",
+    technologiesUsed: "HTML/CSS/JS",
+  },
   holmes: {
     name: "Portfolio Watcher",
     description:
       "Created to help in keeping track of a portfolio risk such as: portfolio heat, individual trade size vs account, percentage gain/loss, and whether stops are set. It can also handle multiple accounts.",
     technologiesUsed: "Express, WebSockets, Node.js, HTML/CSS/JS",
-    slideWidth: 100,
-    slideHeight: 50,
   },
   breadth: {
     name: "Market Breadth",
@@ -38,6 +44,12 @@ export const PROJECTS_DATA = {
       "Displaying charts from scans and separated by sectors. Synching of charts across machines. Keyboard navigation. Dark mode setting.",
     technologiesUsed:
       "Express, Node.js, WebSockets, WScript, Puppeteer, HTML/CSS/JS",
+  },
+  alp: {
+    name: "Advanced Learning Plan",
+    description:
+      "The Advanced Learning Plan (ALP) web app was created to help with the district required reporting for each GT student. For the screenshot, only the email, which was sent to parents is shown, due to the sensitivy of student data in the application portion.",
+    technologiesUsed: "Apps Script, HTML/CSS/JS",
   },
   "fundamental-charts-news": {
     name: "Fundamental for a Company",
