@@ -52,7 +52,7 @@ export const PROJECTS_DATA = {
     technologiesUsed: "Apps Script, HTML, CSS, JSS",
   },
   "fundamental-charts-news": {
-    name: "Fundamental for a Company",
+    name: "Fundamental Data for a Company",
     description:
       "Compiles fundamental data for a company and calculates EPS/Rev % increases. Also gathers data from news resources.",
     technologiesUsed: "Express, Node.js, MySQL, Puppeteer, HTML, CSS, JSS",
