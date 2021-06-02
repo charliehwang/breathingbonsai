@@ -78,7 +78,7 @@ export const PROJECTS_DATA = {
   "jiffy-time-tracking": {
     name: "Time Tracking Overview",
     description:
-      "Visualizes the time spent during the week grouped by goals/projects/sub-projects.",
+      "Visualizes the time spent during the week grouped by projects, sub-projects and tasks.",
     technologiesUsed: "D3, HTML, CSS, JSS",
   },
   slidetimer: {
