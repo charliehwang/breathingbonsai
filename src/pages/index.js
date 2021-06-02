@@ -46,7 +46,7 @@ const IndexPage = () => {
           >
             Hi
           </span>
-          , I'm&nbsp;
+          <span className="text-gray-500">,</span> I'm&nbsp;
           <div className="inline-block relative">
             <span className="">Charlie</span>
             <div
