@@ -102,7 +102,7 @@ const Portfolio = ({ openCarouselModal }) => {
     );
   });
 
-  return <div className="flex flex-wrap">{projects}</div>;
+  return <div className="flex flex-wrap justify-around">{projects}</div>;
 };
 
 export default Portfolio;
