@@ -62,13 +62,14 @@ const Portfolio = ({ openCarouselModal }) => {
     return (
       <div
         key={i}
-        className="transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative hover:-translate-y-1 hover:border-blue-300 hover:border-b-2"
+        className="transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative hover:-translate-y-1 hover:border-blue-300 hover:border-b-2 flex"
       >
         <a
           href="#"
           onClick={(e) => {
             openCarouselModal(e, PROJECT_DATA, imagesData);
           }}
+          alt="Display Project Image Carousel"
           className=""
         >
           <div className="rounded overflow-hidden">
