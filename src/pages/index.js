@@ -71,7 +71,7 @@ const IndexPage = () => {
             </span>
           </div>
           <p className="mt-4 text-3xl text-gray-600">
-            These are some projects I have worked on.
+            Here are projects I've made.
           </p>
         </div>
       </section>
