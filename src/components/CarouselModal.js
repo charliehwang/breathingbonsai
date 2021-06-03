@@ -1,27 +1,73 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import ProjectCarousel from "./ProjectCarousel";
+import { useSpring, animated, config } from "react-spring";
 
-const SLIDE_COUNT = 5;
-const slides = Array.from(Array(SLIDE_COUNT).keys());
+const CarouselModal = ({ isModalOpen, setOpen, onClose, children }) => {
+  const [isReverse, setReverse] = useState(false);
 
-const CarouselModal = ({ setOpen, onClose, projectSelected }) => {
+  console.log("createPortal");
+  const commonStyles = {
+    delay: 25,
+    reset: isReverse,
+    reverse: isReverse,
+    onRest: () => {
+      if (isReverse) {
+        onClose();
+        setReverse(false);
+      }
+    },
+  };
+  const partialFadeAnim = useSpring({
+    // loop: { reverse: true },
+    config: config.stiff,
+    from: { opacity: 0 },
+    to: { opacity: 0.7 },
+    ...commonStyles,
+  });
+  const fadeAnim = useSpring({
+    // loop: { reverse: true },
+    config: config.stiff,
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    ...commonStyles,
+  });
+  const scaleAnim = useSpring({
+    // loop: { reverse: true },
+    config: { mass: 1, tension: 300, friction: 30 },
+    from: { transform: "scale(0)" },
+    to: { transform: "scale(1)" },
+    ...commonStyles,
+  });
+
+  useEffect(() => {
+    const listener = document.addEventListener("keyup", (e) => {
+      if (e.key === "Escape") {
+        setReverse(true);
+      }
+    });
+
+    return () => document.removeEventListener("keyup", listener);
+  }, [isReverse]);
+
   return createPortal(
     <>
-      <div
+      <animated.div
         id="modal-shadow"
         onClick={() => {
-          onClose();
+          setReverse(true);
         }}
         className="fixed h-full w-full top-0 bg-black opacity-70 z-10"
+        style={{ ...partialFadeAnim }}
       />
-      <div
+      <animated.div
         id="modal"
-        className="rounded bg-white fixed z-10 inset-x-4 h-4/5 top-4"
+        className="rounded bg-white fixed z-20 inset-x-4 h-4/5 top-4"
+        style={{ ...fadeAnim }}
+        // style={{ ...scaleAnim }}
       >
         <button
           onClick={() => {
-            onClose();
+            setReverse(true);
           }}
           className="embla__button__close"
         >
@@ -30,15 +76,14 @@ const CarouselModal = ({ setOpen, onClose, projectSelected }) => {
             width="35"
             height="35"
             viewBox="0 0 640 480"
-            preserveAspectRatio="true"
           >
             <g>
               <path d="M371.52 241.5l151.3-149.7c13.8-13.6 13.9-35.7.3-49.5-13.6-13.8-35.8-13.9-49.5-.3l-151.5 149.9-149.3-149.7c-13.7-13.7-35.8-13.8-49.5-.1-13.7 13.6-13.7 35.8-.1 49.5l149 149.5-150.2 148.7c-13.8 13.6-13.9 35.7-.3 49.5 6.9 6.9 15.9 10.4 24.9 10.4 8.9 0 17.8-3.4 24.6-10.1l150.5-148.8L473.42 443c6.8 6.9 15.8 10.3 24.8 10.3s17.9-3.4 24.7-10.2c13.7-13.7 13.7-35.8.1-49.5l-151.5-152.1z" />
             </g>
           </svg>
         </button>
-        <ProjectCarousel projectSelected={projectSelected} />
-      </div>
+        {children}
+      </animated.div>
     </>,
     document.getElementById("app-modal")
   );

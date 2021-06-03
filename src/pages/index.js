@@ -6,21 +6,13 @@ import Layout from "../components/layout";
 import Seo from "../components/seo";
 import Portfolio from "../components/portfolio";
 import CarouselModal from "../components/CarouselModal";
+import ProjectCarousel from "../components/ProjectCarousel";
+
 import "./index.css";
 
 const IndexPage = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [projectSelected, setProjectSelected] = useState(null);
-
-  useEffect(() => {
-    const listener = document.addEventListener("keyup", (e) => {
-      if (isModalOpen && e.key === "Escape") {
-        setModalOpen(false);
-      }
-    });
-
-    return () => document.removeEventListener("keyup", listener);
-  }, [isModalOpen]);
 
   const openCarouselModal = (e, projectData, imagesData) => {
     e.preventDefault();
@@ -83,10 +75,9 @@ const IndexPage = () => {
       <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
     </p> */}
       {isModalOpen && (
-        <CarouselModal
-          onClose={closeCarouselModal}
-          projectSelected={projectSelected}
-        />
+        <CarouselModal isModalOpen={isModalOpen} onClose={closeCarouselModal}>
+          <ProjectCarousel projectSelected={projectSelected} />
+        </CarouselModal>
       )}
     </Layout>
   );

@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { DotButton, PrevButton, NextButton } from "./ProjectCarouselButtons";
 import { useEmblaCarousel } from "embla-carousel/react";
-// import { mediaByIndex } from "../media";
 import "./ProjectCarousel.css";
-// import { GatsbyImage } from "gatsby-plugin-image/withIEPolyfill";
+// import { GatsbyImage } from "gatsby-plugin-image";
 import Img from "gatsby-image/withIEPolyfill";
 
 const ProjectCarousel = ({ projectSelected }) => {
