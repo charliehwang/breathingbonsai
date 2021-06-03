@@ -22,7 +22,7 @@ const CarouselModal = ({ isModalOpen, setOpen, onClose, children }) => {
     ...commonStyles,
     delay: 5,
     config: config.stiff,
-    from: { opacity: 0.5 },
+    from: { opacity: 0 },
     to: { opacity: 0.7 },
   });
   const fadeAnim = useSpring({
