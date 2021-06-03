@@ -47,11 +47,11 @@ const DialogModal = ({ isModalOpen, setOpen, onClose, children }) => {
               onClick={(e) => {
                 closeModalHandler(e);
               }}
-              className="fixed h-full w-full top-0 z-10"
+              className="fixed h-full w-full top-0 z-10 opacity-70"
               style={{ opacity: styles.opacity }}
             >
               <AnimatedDialogContent
-                className="rounded bg-white  z-20 m-8 inset-x-4 h-4/5 top-4"
+                className="rounded bg-white z-20 m-8 inset-x-4 h-4/5 top-4"
                 style={{
                   transform: styles.y.to((value) => `translateY(${value}px)`),
                 }}
