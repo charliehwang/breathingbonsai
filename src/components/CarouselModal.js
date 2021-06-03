@@ -19,10 +19,11 @@ const CarouselModal = ({ isModalOpen, setOpen, onClose, children }) => {
   };
   const partialFadeAnim = useSpring({
     // loop: { reverse: true },
-    config: config.stiff,
-    from: { opacity: 0 },
-    to: { opacity: 0.7 },
     ...commonStyles,
+    delay: 5,
+    config: config.stiff,
+    from: { opacity: 0.5 },
+    to: { opacity: 0.7 },
   });
   const fadeAnim = useSpring({
     // loop: { reverse: true },
@@ -31,12 +32,19 @@ const CarouselModal = ({ isModalOpen, setOpen, onClose, children }) => {
     to: { opacity: 1 },
     ...commonStyles,
   });
+  const scaleFadeAnim = useSpring({
+    // loop: { reverse: true },
+    ...commonStyles,
+    config: config.stiff,
+    from: { opacity: 0 },
+    to: { opacity: 0.7 },
+  });
   const scaleAnim = useSpring({
     // loop: { reverse: true },
+    ...commonStyles,
     config: { mass: 1, tension: 300, friction: 30 },
     from: { transform: "scale(0)" },
     to: { transform: "scale(1)" },
-    ...commonStyles,
   });
 
   useEffect(() => {
