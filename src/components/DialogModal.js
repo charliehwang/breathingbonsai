@@ -47,7 +47,7 @@ const DialogModal = ({ isModalOpen, setOpen, onClose, children }) => {
               onClick={(e) => {
                 closeModalHandler(e);
               }}
-              className="fixed h-full w-full m-8 top-0 z-10 opacity-70"
+              className="fixed h-full w-full p-8 top-0 z-10 opacity-70"
               style={{ opacity: styles.opacity }}
             >
               <AnimatedDialogContent
