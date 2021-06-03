@@ -5,7 +5,6 @@ import { useSpring, animated, config } from "react-spring";
 const CarouselModal = ({ isModalOpen, setOpen, onClose, children }) => {
   const [isReverse, setReverse] = useState(false);
 
-  console.log("createPortal");
   const commonStyles = {
     delay: 25,
     reset: isReverse,
@@ -32,6 +31,7 @@ const CarouselModal = ({ isModalOpen, setOpen, onClose, children }) => {
     to: { opacity: 1 },
     ...commonStyles,
   });
+
   const scaleFadeAnim = useSpring({
     // loop: { reverse: true },
     ...commonStyles,
