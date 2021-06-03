@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import { VisuallyHidden } from "@reach/visually-hidden";
 import { useSpring, animated, config, useTransition } from "react-spring";
-import "@reach/dialog/styles.css";
+import "../styles/dialog.css";
 
 const DialogModal = ({ isModalOpen, setOpen, onClose, children }) => {
   const modalRef = useRef();
@@ -47,11 +47,11 @@ const DialogModal = ({ isModalOpen, setOpen, onClose, children }) => {
               onClick={(e) => {
                 closeModalHandler(e);
               }}
-              className="fixed h-full w-full top-0 bg-black opacity-75 z-10"
+              className="fixed h-full w-full top-0 z-10"
               style={{ opacity: styles.opacity }}
             >
               <AnimatedDialogContent
-                className="rounded bg-white fixed z-20 inset-x-4 h-4/5 top-4"
+                className="rounded bg-white  z-20 m-8 inset-x-4 h-4/5 top-4"
                 style={{
                   transform: styles.y.to((value) => `translateY(${value}px)`),
                 }}
