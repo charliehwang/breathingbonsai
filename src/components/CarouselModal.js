@@ -16,6 +16,7 @@ const CarouselModal = ({ isModalOpen, setOpen, onClose, children }) => {
       }
     },
   };
+
   const partialFadeAnim = useSpring({
     // loop: { reverse: true },
     ...commonStyles,

@@ -7,6 +7,7 @@ import Seo from "../components/seo";
 import Portfolio from "../components/portfolio";
 import CarouselModal from "../components/CarouselModal";
 import ProjectCarousel from "../components/ProjectCarousel";
+import DialogModal from "../components/DialogModal";
 
 import "./index.css";
 
@@ -74,13 +75,17 @@ const IndexPage = () => {
       <Link to="/page-2/">Go to page 2</Link> <br />
       <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
     </p> */}
-      {isModalOpen && (
-        <CarouselModal isModalOpen={isModalOpen} onClose={closeCarouselModal}>
+      {projectSelected && (
+        <DialogModal isModalOpen={isModalOpen} onClose={closeCarouselModal}>
           <ProjectCarousel projectSelected={projectSelected} />
-        </CarouselModal>
+        </DialogModal>
       )}
     </Layout>
   );
 };
 
 export default IndexPage;
+
+// <CarouselModal isModalOpen={isModalOpen} onClose={closeCarouselModal}>
+//   <ProjectCarousel projectSelected={projectSelected} />
+// </CarouselModal>
