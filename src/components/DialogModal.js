@@ -60,6 +60,9 @@ const DialogModal = ({ isModalOpen, setOpen, onClose, children }) => {
                 }}
                 aria-label="Project Carousel"
               >
+                <VisuallyHidden>
+                  <input aria-label="Empty Link to Set Focus in Modal Window"></input>
+                </VisuallyHidden>
                 <button
                   onClick={(e) => {
                     onClose();
