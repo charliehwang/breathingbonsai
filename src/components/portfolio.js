@@ -88,46 +88,46 @@ const createProjectCards = (
     if (!gatsbyImageData) console.log("No Data-------------------------------");
 
     return (
-      <div
+      // <div
+      // tabindex="0"
+      // className="transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative hover:-translate-y-2 hover:border-blue-300 flex"
+      // >
+      <a
+        href="#"
+        onClick={(e) => {
+          openCarouselModal(e, PROJECT_DATA, imagesData);
+        }}
+        alt="Display Project Image Carousel"
         key={i}
-        // className="transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative hover:-translate-y-2 hover:border-blue-300 flex"
-        className="project-cards transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative  hover:border-blue-300 flex"
+        className="project-cards transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative  hover:border-blue-300 flex flex-col"
       >
-        <a
-          href="#"
-          onClick={(e) => {
-            openCarouselModal(e, PROJECT_DATA, imagesData);
-          }}
-          alt="Display Project Image Carousel"
-          className=""
-        >
-          <div className="rounded overflow-hidden">
-            <GatsbyImage
-              className="gatsby-image h-36 w-full object-cover"
-              image={gatsbyImageData}
-              alt="image"
-            />
+        <div className="rounded overflow-hidden">
+          <GatsbyImage
+            className="gatsby-image h-36 w-full object-cover"
+            image={gatsbyImageData}
+            alt="image"
+          />
+        </div>
+        <article className="p-4">
+          <div className="project-title text-gray-700 font-bold pb-4">
+            {PROJECT_DATA.name}
           </div>
-          <article className="p-4">
-            <div className="project-title text-gray-700 font-bold pb-4">
-              {PROJECT_DATA.name}
-            </div>
-            <p className="pb-4">{PROJECT_DATA.description}</p>
-            <div className="flex flex-wrap">
-              {PROJECT_DATA.technologiesUsed.split(",").map((tech, i) => {
-                return (
-                  <div
-                    key={i}
-                    className="text-gray-700 font-sans text-sm font-bold mr-1 mt-1 px-2 py-1 rounded-md bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"
-                  >
-                    {tech.trim()}
-                  </div>
-                );
-              })}
-            </div>
-          </article>
-        </a>
-      </div>
+          <p className="pb-4">{PROJECT_DATA.description}</p>
+          <div className="flex flex-wrap">
+            {PROJECT_DATA.technologiesUsed.split(",").map((tech, i) => {
+              return (
+                <div
+                  key={i}
+                  className="text-gray-700 font-sans text-sm font-bold mr-1 mt-1 px-2 py-1 rounded-md bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"
+                >
+                  {tech.trim()}
+                </div>
+              );
+            })}
+          </div>
+        </article>
+      </a>
+      // </div>
     );
   });
 };
