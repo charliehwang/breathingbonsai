@@ -47,6 +47,7 @@ const ProjectCarousel = ({ projectSelected }) => {
                 <div className="embla__slide" key={i}>
                   <div className="embla__slide__inner">
                     <Img
+                      alt={`${projectData.name} Image`}
                       className="embla__slide__img"
                       // objectFit="scale-down"
                       objectFit="contain"

@@ -1,3 +1,9 @@
 .project-cards:hover {
 	transform: scale(1.02);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .project-cards:hover {
+    transform: none;
+  }
+}

@@ -3,6 +3,7 @@ import React from "react";
 export const DotButton = ({ selected, onClick }) => (
   <button
     className={`embla__dot ${selected ? "is-selected" : ""}`}
+    aria-label="Image Item"
     type="button"
     onClick={onClick}
   />
@@ -11,6 +12,7 @@ export const DotButton = ({ selected, onClick }) => (
 export const PrevButton = ({ enabled, onClick }) => (
   <button
     className="embla__button embla__button--prev"
+    aria-label="Previous Image"
     onClick={onClick}
     disabled={!enabled}
   >
@@ -23,6 +25,7 @@ export const PrevButton = ({ enabled, onClick }) => (
 export const NextButton = ({ enabled, onClick }) => (
   <button
     className="embla__button embla__button--next"
+    aria-label="Next Image"
     onClick={onClick}
     disabled={!enabled}
   >

@@ -88,16 +88,13 @@ const createProjectCards = (
     if (!gatsbyImageData) console.log("No Data-------------------------------");
 
     return (
-      // <div
-      // tabindex="0"
-      // className="transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative hover:-translate-y-2 hover:border-blue-300 flex"
-      // >
       <a
         href="#"
         onClick={(e) => {
           openCarouselModal(e, PROJECT_DATA, imagesData);
         }}
-        alt="Display Project Image Carousel"
+        // aria-label={`Open ${PROJECT_DATA.name} image carousel modal window`}
+        // aria-description={`Open carousel modal window for, ${PROJECT_DATA.name} ${PROJECT_DATA.description}`}
         key={i}
         className="project-cards transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative  hover:border-blue-300 flex flex-col"
       >
@@ -105,7 +102,7 @@ const createProjectCards = (
           <GatsbyImage
             className="gatsby-image h-36 w-full object-cover"
             image={gatsbyImageData}
-            alt="image"
+            alt={`Heading image ${PROJECT_DATA.name}`}
           />
         </div>
         <article className="p-4">
@@ -127,7 +124,6 @@ const createProjectCards = (
           </div>
         </article>
       </a>
-      // </div>
     );
   });
 };
