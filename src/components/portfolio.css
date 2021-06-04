@@ -1,5 +1,10 @@
+.project-cards {
+	/* transform: scale(0.98); */
+	transform: scale(0.98);
+}
+
 .project-cards:hover {
-	transform: scale(1.02);
+	transform: scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -96,9 +96,9 @@ const createProjectCards = (
         // aria-label={`Open ${PROJECT_DATA.name} image carousel modal window`}
         // aria-description={`Open carousel modal window for, ${PROJECT_DATA.name} ${PROJECT_DATA.description}`}
         key={i}
-        className="project-cards transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative  hover:border-blue-300 flex flex-col"
+        className="project-cards transition delay-100 transform w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative  hover:border-blue-300 flex flex-col"
       >
-        <div className="rounded overflow-hidden">
+        <div className="project-img-container rounded overflow-hidden">
           <GatsbyImage
             className="gatsby-image h-36 w-full object-cover"
             image={gatsbyImageData}
