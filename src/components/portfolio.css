@@ -1,1 +1,3 @@
-/* Fade in */
+.project-cards:hover {
+	transform: scale(1.02);
+}

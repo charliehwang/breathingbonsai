@@ -38,7 +38,6 @@ const DialogModal = ({ isModalOpen, setOpen, onClose, children }) => {
 
   return (
     <>
-      {/* {transitions(({ item, key, props: styles }) => { */}
       {transitions((styles, item) => {
         return (
           item && (
@@ -88,13 +87,6 @@ const DialogModal = ({ isModalOpen, setOpen, onClose, children }) => {
         );
       })}
     </>
-
-    /* <Dialog isOpen={isModalOpen} onDismiss={onClose}>
-        <button className="close-button" onClick={onClose}>
-          <VisuallyHidden>Close</VisuallyHidden>
-          <span aria-hidden>×</span>
-        </button>
-      </Dialog> */
   );
 };
 

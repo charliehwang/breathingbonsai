@@ -7,36 +7,52 @@ import CarouselModal from "./CarouselModal";
 
 const Portfolio = ({ openCarouselModal }) => {
   const data = useStaticQuery(graphql`
-  query MyQuery {
-    allFile(
-      filter: {extension: {regex: "/png|jpg/i"}, name: {regex: "/\\d+/"}, relativeDirectory: {regex: "/^portfolio/"}}
-    ) {
-      edges {
-        node {
-          id
-          relativeDirectory
-          name
-          extension
-          relativePath
-          childrenImageSharp {
+    query MyQuery {
+      allFile(
+        filter: {extension: {regex: "/png|jpg/i"}, name: {regex: "/\\d+/"}, relativeDirectory: {regex: "/^portfolio/"}}
+      ) {
+        edges {
+          node {
             id
-            gatsbyImageData
-            fluid(maxWidth: 1000) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              sizes
+            relativeDirectory
+            name
+            extension
+            relativePath
+            childrenImageSharp {
+              id
+              gatsbyImageData
+              fluid(maxWidth: 1000) {
+                base64
+                aspectRatio
+                src
+                srcSet
+                sizes
+              }
             }
           }
         }
       }
-    }
-  }	
+    }	
 `);
 
-  // console.log(data.allFile.edges);
-  const projectData = data.allFile.edges?.reduce((acc, { node }) => {
+  const projectData = groupProjects(data);
+  const projectCards = createProjectCards(
+    PROJECTS_ORDERED,
+    projectData,
+    openCarouselModal
+  );
+
+  return <div className="flex flex-wrap justify-around">{projectCards}</div>;
+};
+
+/**
+ * Groups all image files of a project into a hash sorted by project
+ *
+ * @param {data} data List of image file data from the graphQL query with project name
+ * @return {Hash} in the shape of { 'projectA': imageFileData, 'projectB': imageFileData, ... }
+ */
+const groupProjects = (data) => {
+  return data.allFile.edges?.reduce((acc, { node }) => {
     const { name: filename, extension, relativeDirectory, relativePath } = node;
     const file = `${filename}.${extension}`;
     const [baseDir, project] = relativeDirectory.split("/");
@@ -48,8 +64,20 @@ const Portfolio = ({ openCarouselModal }) => {
     }
     return acc;
   }, {});
+};
 
-  const projects = PROJECTS_ORDERED.map((project, i) => {
+/**
+ * Create the project card elements
+ *
+ * @param {Array} orderedProjects Array of project names listed in the desired order. Usually obtained from project-data.js
+ * @return {Array[React.Elements]} Array of project card elements
+ */
+const createProjectCards = (
+  orderedProjects,
+  projectData,
+  openCarouselModal
+) => {
+  return orderedProjects.map((project, i) => {
     const imagesData = projectData[project].sort((a, b) => +a.name - +b.name);
     // console.log(imagesData);
     const imagesCount = imagesData.length;
@@ -62,7 +90,8 @@ const Portfolio = ({ openCarouselModal }) => {
     return (
       <div
         key={i}
-        className="transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative hover:-translate-y-1 hover:border-blue-300 flex"
+        // className="transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative hover:-translate-y-2 hover:border-blue-300 flex"
+        className="project-cards transition delay-100 transform group w-80 mr-4 mb-4 border border-gray-200 rounded overflow-hidden shadow-lg relative  hover:border-blue-300 flex"
       >
         <a
           href="#"
@@ -101,8 +130,6 @@ const Portfolio = ({ openCarouselModal }) => {
       </div>
     );
   });
-
-  return <div className="flex flex-wrap justify-around">{projects}</div>;
 };
 
 export default Portfolio;

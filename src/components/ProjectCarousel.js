@@ -52,12 +52,6 @@ const ProjectCarousel = ({ projectSelected }) => {
                       objectFit="contain"
                       fluid={fluidData}
                     />
-                    {/* <img
-                    className="embla__slide__img"
-                    // src={mediaByIndex(index)}
-                    src={""}
-                    alt=""
-                  /> */}
                   </div>
                 </div>
               );
@@ -67,6 +61,7 @@ const ProjectCarousel = ({ projectSelected }) => {
         <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
         <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
       </div>
+
       <div className="embla__dots">
         {scrollSnaps.map((_, index) => (
           <DotButton
