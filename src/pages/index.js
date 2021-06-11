@@ -5,9 +5,9 @@ import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import Portfolio from "../components/portfolio";
-import CarouselModal from "../components/CarouselModal";
-import ProjectCarousel from "../components/ProjectCarousel";
-import DialogModal from "../components/DialogModal";
+import CarouselModal from "../components/carousel-modal";
+import ProjectCarousel from "../components/project-carousel";
+import DialogModal from "../components/dialog-modal";
 
 import "./index.css";
 

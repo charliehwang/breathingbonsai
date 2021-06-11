@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Link, getImage, GatsbyImage } from "gatsby-plugin-image";
 import { PROJECTS_ORDERED, PROJECTS_DATA } from "./projects-data";
 import "./portfolio.css";
-import CarouselModal from "./CarouselModal";
+import CarouselModal from "./carousel-modal";
 
 const Portfolio = ({ openCarouselModal }) => {
   const data = useStaticQuery(graphql`
