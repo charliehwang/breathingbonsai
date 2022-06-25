@@ -4,7 +4,7 @@ export const PROJECTS_ORDERED = [
   "breadth",
   "chart-scans-v1",
   "chart-scans-v2",
-  "alp",
+  //"alp",
   "fundamental-charts-news",
   "top-stocks-by-day",
   "daytrader-dashboard",
@@ -45,12 +45,12 @@ export const PROJECTS_DATA = {
     technologiesUsed:
       "Express, Node.js, WebSockets, WScript, Puppeteer, HTML, CSS, JSS",
   },
-  alp: {
-    name: "Advanced Learning Plan",
-    description:
-      "The Advanced Learning Plan (ALP) web app helps the teacher with district required reporting for each GT student. For the screenshot, only the email, which was sent to parents is shown, due to the sensitivy of student data in the application portion.",
-    technologiesUsed: "Apps Script, HTML, CSS, JSS",
-  },
+  // alp: {
+  //   name: "Advanced Learning Plan",
+  //   description:
+  //     "The Advanced Learning Plan (ALP) web app helps the teacher with district required reporting for each GT student. For the screenshot, only the email, which was sent to parents is shown, due to the sensitivy of student data in the application portion.",
+  //   technologiesUsed: "Apps Script, HTML, CSS, JSS",
+  // },
   "fundamental-charts-news": {
     name: "Fundamental Data for a Company",
     description:
