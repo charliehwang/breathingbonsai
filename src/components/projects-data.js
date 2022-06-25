@@ -4,7 +4,7 @@ export const PROJECTS_ORDERED = [
   "breadth",
   "chart-scans-v1",
   "chart-scans-v2",
-  "alp",
+  //"alp",
   "fundamental-charts-news",
   "top-stocks-by-day",
   "daytrader-dashboard",
